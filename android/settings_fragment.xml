@@ -1,0 +1,8 @@
+// App Preferences save/load logic for sensitivity
+class GesturePreferences(context: Context) {
+    private val prefs = context.getSharedPreferences("librepods_gesture_prefs", Context.MODE_PRIVATE)
+
+    var sensitivityLevel: Float
+        get() = prefs.getFloat("gesture_sensitivity", 1.5f)
+        set(value) = prefs.edit().putFloat("gesture_sensitivity", value).apply()
+}
